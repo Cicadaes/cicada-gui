@@ -37,6 +37,17 @@ module.exports = webpackMerge(webpackBase, {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            formatter: require('eslint-friendly-formatter')
+          }
+        }
+      },
         {
             test: /\.styl$/,
             // use: ExtractTextPlugin.extract('style', 'css!stylus') // ExtractTextPlugin.extract('style', 'css!postcss!stylus')
