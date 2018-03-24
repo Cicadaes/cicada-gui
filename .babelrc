@@ -1,22 +1,20 @@
 {
-    "comments": false,
-    "env": {
-        "renderer": {
-            "presets": [
-              [
-                "env",
-                { 
-                  "targets": {
-                    "electron": "1.8.4"
-                  },
-                  "loose": false, 
-                  "modules": false,
-                  "useBuiltIns": true
-                }
-              ],
-              "stage-0"
-            ]
-        }
-    },
-    "plugins": ["transform-runtime"]
+  "comments": false,
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "electron": "1.8.4"
+        },
+        "loose": false,
+        "modules": false,
+        "useBuiltIns": true
+      }
+    ],
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ]
 }

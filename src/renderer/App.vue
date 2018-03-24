@@ -8,7 +8,7 @@ import './core.styl' // Must configure `rules test .styl` in webpack
 export default {
   data () {
     return {
-      msg: 'World!'
+      msg: 'World!!!'
     }
   }
 }

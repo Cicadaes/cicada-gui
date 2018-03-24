@@ -9,7 +9,8 @@
     "start:electron": "electron ./app/main.js",
     "start:dev": "npm-run-all --parallel dev:renderer dev:main",
     "dev:renderer": "webpack-dev-server --config ./webpack/dev.renderer.conf.js",
-    "dev:main": "webpack --config ./webpack/dev.main.conf.js -w"
+    "dev:main": "webpack --config ./webpack/dev.main.conf.js -w",
+    "build:renderer": "webpack --config ./webpack/prod.renderer.conf.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
     "css-loader": "^0.28.11",
     "electron": "^1.8.4",
     "electron-debug": "^1.5.0",
