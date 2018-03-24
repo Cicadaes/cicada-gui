@@ -19,8 +19,8 @@ module.exports = webpackMerge(webpackBase, {
   devtool: 'cheap-module-eval-source-map',
   entry: {
     render: [
-        './src/renderer/index.js'
-      ]
+      './src/renderer/index.js'
+    ]
   },
   output: {
     path: resolve(outputDir, 'renderer'),
@@ -32,7 +32,7 @@ module.exports = webpackMerge(webpackBase, {
   ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only 
+      'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only
     }
   },
   module: {
@@ -48,67 +48,67 @@ module.exports = webpackMerge(webpackBase, {
           }
         }
       },
-        {
-            test: /\.styl$/,
-            // use: ExtractTextPlugin.extract('style', 'css!stylus') // ExtractTextPlugin.extract('style', 'css!postcss!stylus')
-            use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: ['css-loader','stylus-loader']
-            })
-          },
-          {
-            test: /\.html$/,
-            use: 'vue-html-loader'
-          },
-          {
-            test: /\.js$/,
-            use: 'babel-loader',
-            exclude: /node_modules/
-          },
-          {
-            test: /\.node$/,
-            use: 'node-loader'
-          },
-          {
-            test: /\.vue$/,
-            use: {
-              loader: 'vue-loader',
-              options: {
-                // extractCSS: process.env.NODE_ENV === 'production',
-                loaders: {
-                  stylus: 'vue-style-loader!css-loader!stylus-loader' // inline, .e.g <style type="text/css"></style>
-                }
-              }
-            }
-          },
-          {
-            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-            use: {
-              loader: 'url-loader',
-              query: {
-                limit: 10000,
-                name: 'imgs/[name]--[folder].[ext]'
-              }
-            }
-          },
-          {
-            test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: 'media/[name]--[folder].[ext]'
-            }
-          },
-          {
-            test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-            use: {
-              loader: 'url-loader',
-              query: {
-                limit: 10000,
-                name: 'fonts/[name]--[folder].[ext]'
-              }
+      {
+        test: /\.styl$/,
+        // use: ExtractTextPlugin.extract('style', 'css!stylus') // ExtractTextPlugin.extract('style', 'css!postcss!stylus')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'stylus-loader']
+        })
+      },
+      {
+        test: /\.html$/,
+        use: 'vue-html-loader'
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.node$/,
+        use: 'node-loader'
+      },
+      {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader',
+          options: {
+            // extractCSS: process.env.NODE_ENV === 'production',
+            loaders: {
+              stylus: 'vue-style-loader!css-loader!stylus-loader' // inline, .e.g <style type="text/css"></style>
             }
           }
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          query: {
+            limit: 10000,
+            name: 'imgs/[name]--[folder].[ext]'
+          }
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'media/[name]--[folder].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        use: {
+          loader: 'url-loader',
+          query: {
+            limit: 10000,
+            name: 'fonts/[name]--[folder].[ext]'
+          }
+        }
+      }
     ]
   },
   devServer: {
@@ -118,7 +118,7 @@ module.exports = webpackMerge(webpackBase, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: resolve(__dirname, '..', 'static', 'index.html')
+      template: resolve(__dirname, '..', 'static', 'index.html')
     }),
     new ExtractTextPlugin('style.css') // file, .e.g <link href="./style.css" rel="stylesheet">
   ]

@@ -1,3 +1,19 @@
+/**
+ * vscode eslint
+ * 1. npm i -D eslint-plugin-html
+ * 2. .eslintrc | .eslint.js: "plugins": ["vue"]
+ * 3. vscode plugin: eslint vetur
+ * 4. setting.json
+ *      "eslint.autoFixOnSave": true,
+        "eslint.validate": [
+            "javascript",{
+                "language": "vue",
+                "autoFix": true
+            },"html",
+            "vue"
+        ]
+ */
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',

@@ -17,7 +17,7 @@ module.exports = webpackMerge(webpackBase, {
   module: {
     rules: [
       {
-          test: /\.(js)$/,
+        test: /\.(js)$/,
         enforce: 'pre',
         exclude: /node_modules/,
         use: {

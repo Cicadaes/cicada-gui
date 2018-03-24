@@ -3,13 +3,13 @@
 </template>
 
 <script>
-import './core.styl' // Must configure `rules test .styl` in webpack 
+import './core.styl' // Must configure `rules test .styl` in webpack
 
 export default {
-  data() {
-      return {
-            msg: 'World!'
-      }
+  data () {
+    return {
+      msg: 'World!'
+    }
   }
 }
 </script>
