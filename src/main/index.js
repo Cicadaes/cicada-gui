@@ -1,8 +1,19 @@
+import { join } from 'path'
+import { format } from 'url'
 import { app, BrowserWindow } from 'electron'
 import electronDebug from 'electron-debug'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 
 let mainWindow
+const APP_PATH = join(process.resourcesPath, 'app')
+const prodStaticUrl = join(APP_PATH, 'renderer', 'index.html')
+let winURL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:9001'
+  : format({
+    pathname: prodStaticUrl,
+    protocol: 'file:',
+    slashes: true
+  })
 
 // Install `electron-debug` with `devtron`
 // Error: Critical dependency: the request of a dependency is an expression
@@ -31,7 +42,7 @@ app.on('ready', () => {
       console.log('Unable to intall `vue-devtools`: \n', err)
     })
 
-  mainWindow.loadURL('http://localhost:9001')
+  mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
     mainWindow = null

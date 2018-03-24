@@ -14,7 +14,7 @@
     "build:prod": "npm run prod:renderer & npm run prod:main",
     "prod:renderer": "webpack --config ./webpack/prod.renderer.conf.js",
     "prod:main": "webpack --config ./webpack/prod.main.conf.js",
-    "pack:win": "electron-packager ./app CicadaGUI --platform=win32 --arch=x64 --out ./release --version 1.0.0 "
+    "pack:win": "electron-packager ./app CicadaGUI --platform=win32 --arch=x64 --out ./release --version 1.0.0 --overwrite"
   },
   "repository": {
     "type": "git",
