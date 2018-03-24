@@ -8,7 +8,7 @@ const packager = require('electron-packager')
  * Build webpack in production
  */
 function build () {
-  console.log('\x1b[33mBuilding webpack in production mode...\n\x1b[0m')
+  console.log(`\x1b[33mBuilding webpack in production mode...\n\x1b[0m`)
 
   const buildProcess = exec('npm run build:prod')
 
@@ -26,12 +26,12 @@ function pack () {
   packager(
     {
       name: 'CicadaGUI',
-      productName: 'CicadaGUI',
+      productName: 'Cicada GUI Pro',
       arch: 'x64',
       asar: false,
       dir: path.join(process.cwd(), 'app'),
       // icon: path.join(process.cwd(), 'app/icons/icon'),
-      ignore: /(^\/(src|test|\.[a-z]+|README|yarn|static|dist\/web))|\.gitkeep/,
+      ignore: /(^\/(README|yarn|dist\/web))|\.gitkeep/,
       out: path.join(process.cwd(), 'release'),
       overwrite: true,
       platform: 'win32'

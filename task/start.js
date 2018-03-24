@@ -50,5 +50,5 @@ function run (command, color, name) {
   children.push(child)
 }
 
-console.log(`${YELLOW}Starting renderer and main process...\n${END}`)
+console.log(`${YELLOW}Starting renderer and main process in development mode...\n${END}`)
 run('npm run start:dev', YELLOW, 'webpack')
