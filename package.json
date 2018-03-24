@@ -5,8 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ./app/main.js",
-    "dev": "npm-run-all --parallel dev:renderer dev:main",
+    "start": "node task/start.js",
+    "start:electron": "electron ./app/main.js",
+    "start:dev": "npm-run-all --parallel dev:renderer dev:main",
     "dev:renderer": "webpack-dev-server --config ./webpack/dev.renderer.conf.js",
     "dev:main": "webpack --config ./webpack/dev.main.conf.js -w"
   },
@@ -46,6 +47,7 @@
     "style-loader": "^0.20.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "tree-kill": "^1.2.0",
     "vue": "^2.5.16",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^14.2.1",
