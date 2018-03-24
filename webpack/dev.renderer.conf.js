@@ -38,10 +38,11 @@ module.exports = webpackMerge(webpackBase, {
   module: {
     rules: [
         {
-            test: /\.css$/,
+            test: /\.styl$/,
+            // use: ExtractTextPlugin.extract('style', 'css!stylus') // ExtractTextPlugin.extract('style', 'css!postcss!stylus')
             use: ExtractTextPlugin.extract({
               fallback: 'style-loader',
-              use: 'css-loader'
+              use: ['css-loader','stylus-loader']
             })
           },
           {
@@ -64,7 +65,7 @@ module.exports = webpackMerge(webpackBase, {
               options: {
                 // extractCSS: process.env.NODE_ENV === 'production',
                 loaders: {
-                  stylus: 'vue-style-loader!css-loader!stylus-loader'
+                  stylus: 'vue-style-loader!css-loader!stylus-loader' // inline, .e.g <style type="text/css"></style>
                 }
               }
             }
@@ -107,6 +108,7 @@ module.exports = webpackMerge(webpackBase, {
   plugins: [
     new HtmlWebpackPlugin({
         template: resolve(__dirname, '..', 'static', 'index.html')
-    })
+    }),
+    new ExtractTextPlugin('style.css') // file, .e.g <link href="./style.css" rel="stylesheet">
   ]
 })
