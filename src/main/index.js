@@ -5,6 +5,9 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 let mainWindow
 
 // Install `electron-debug` with `devtron`
+// Error: Critical dependency: the request of a dependency is an expression
+// Fixed: That’s caused by electron-debug trying to require a module using a dynamic path, which webpack doesn’t support. Is not an electron-vue issue.
+// Sorry, I’m not going to change my code because of webpack. See: webpack/webpack#196, So install electron-debug@1.4.0
 electronDebug({
   showDevTools: true
 })
