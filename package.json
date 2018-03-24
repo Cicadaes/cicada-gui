@@ -10,7 +10,11 @@
     "start:dev": "npm-run-all --parallel dev:renderer dev:main",
     "dev:renderer": "webpack-dev-server --config ./webpack/dev.renderer.conf.js",
     "dev:main": "webpack --config ./webpack/dev.main.conf.js -w",
-    "build:renderer": "webpack --config ./webpack/prod.renderer.conf.js"
+    "release": "node task/release.js",
+    "build:prod": "npm run prod:renderer & npm run prod:main",
+    "prod:renderer": "webpack --config ./webpack/prod.renderer.conf.js",
+    "prod:main": "webpack --config ./webpack/prod.main.conf.js",
+    "pack:win": "electron-packager ./app CicadaGUI --platform=win32 --arch=x64 --out ./release --version 1.0.0 "
   },
   "repository": {
     "type": "git",
@@ -34,6 +38,7 @@
     "electron": "^1.8.4",
     "electron-debug": "^1.5.0",
     "electron-devtools-installer": "^2.2.3",
+    "electron-packager": "^11.1.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-friendly-formatter": "^4.0.0",
