@@ -64,7 +64,8 @@ module.exports = webpackMerge(webpackBase, {
     new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       inject: true,
-      template: resolve(__dirname, '../static/index.html'),
+      template: resolve(__dirname, '..', 'static', 'index.ejs'),
+      filename: 'index.html',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

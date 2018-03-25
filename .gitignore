@@ -5,3 +5,4 @@ app/main.js
 app/main.min.js
 app/renderer
 release
+dll

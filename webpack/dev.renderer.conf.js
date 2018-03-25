@@ -1,4 +1,5 @@
 const { resolve } = require('path')
+const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -32,7 +33,7 @@ module.exports = webpackMerge(webpackBase, {
   ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only
+      // 'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only, annotation because of DllReferencePlugin
     }
   },
   module: {
@@ -114,12 +115,21 @@ module.exports = webpackMerge(webpackBase, {
   devServer: {
     publicPath: '/',
     port: 9001,
+    hot: true, // Association HotModuleReplacementPlugin, but `webpack-dev-server --hot`
     https: false // If true, `https://localhost:9001`
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, '..', 'static', 'index.html')
+      template: resolve(__dirname, '..', 'static', 'index.ejs'),
+      filename: 'index.html'
     }),
+    new webpack.DllReferencePlugin({
+      manifest: require(resolve(__dirname, '..', 'dll', 'manifest.dll.json')),
+      sourceType: 'var'
+    }),
+    // partial refresh, http://localhost:9001/render.73098174625ecca05065.hot-update.js
+    // --TypeError: Cannot read property 'extend' of undefined
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('style.css') // file, .e.g <link href="./style.css" rel="stylesheet">
   ]
 })

@@ -10,6 +10,7 @@
     "start:dev": "npm-run-all --parallel dev:renderer dev:main",
     "dev:renderer": "webpack-dev-server --config ./webpack/dev.renderer.conf.js",
     "dev:main": "webpack --config ./webpack/dev.main.conf.js -w",
+    "dev:dll": "webpack --config ./webpack/dev.dll.conf.js",
     "release": "node task/release.js",
     "build:prod": "npm run prod:renderer & npm run prod:main",
     "prod:renderer": "webpack --config ./webpack/prod.renderer.conf.js",
@@ -27,6 +28,7 @@
     "url": "https://github.com/Cicadaes/cicada-gui/issues"
   },
   "homepage": "https://github.com/Cicadaes/cicada-gui#readme",
+  "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",

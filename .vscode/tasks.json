@@ -9,11 +9,17 @@
       "group": {
         "kind": "build",
         "isDefault": true
-      }
+      },
+      "problemMatcher": []
     },
     {
       "type": "npm",
       "script": "release",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "dev:dll",
       "problemMatcher": []
     }
   ]
