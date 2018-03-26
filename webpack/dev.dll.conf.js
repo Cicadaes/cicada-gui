@@ -11,7 +11,7 @@ module.exports = webpackMerge(webpackBase, {
   target: 'electron-renderer',
   entry: {
     vendor: [
-      'vue'
+      'vue/dist/vue.esm.js'
     ]
   },
   output: {

@@ -17,9 +17,9 @@ process.env.BABEL_ENV = 'renderer'
 module.exports = webpackMerge(webpackBase, {
   mode: 'development',
   target: 'electron-renderer',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
   entry: {
-    render: [
+    renderer: [
       './src/renderer/index.js'
     ]
   },
@@ -33,7 +33,7 @@ module.exports = webpackMerge(webpackBase, {
   ],
   resolve: {
     alias: {
-      // 'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only, annotation because of DllReferencePlugin
+      'vue$': 'vue/dist/vue.esm.js' // [Vue warn]: You are using the runtime-only, annotation because of DllReferencePlugin
     }
   },
   module: {
@@ -131,5 +131,6 @@ module.exports = webpackMerge(webpackBase, {
     // --TypeError: Cannot read property 'extend' of undefined
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('style.css') // file, .e.g <link href="./style.css" rel="stylesheet">
+    // new webpack.NoEmitOnErrorsPlugin()
   ]
 })

@@ -8,6 +8,7 @@
     "start": "node task/start.js",
     "start:electron": "electron ./app/main.js",
     "start:dev": "npm-run-all --parallel dev:renderer dev:main",
+    "dev:web": "node ./webpack/dev-server.js",
     "dev:renderer": "webpack-dev-server --config ./webpack/dev.renderer.conf.js",
     "dev:main": "webpack --config ./webpack/dev.main.conf.js -w",
     "dev:dll": "webpack --config ./webpack/dev.dll.conf.js",
@@ -64,6 +65,7 @@
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1",
+    "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^4.1.2"
   }
 }
