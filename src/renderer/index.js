@@ -9,5 +9,6 @@ import App from './App'
 
 /* eslint-disable no-new */
 new Vue({
-  ...App // TypeError: Cannot read property 'extend' of undefined--HotModuleReplacementPlugin
+  components: { App }, // TypeError: Cannot read property 'extend' of undefined--HotModuleReplacementPlugin
+  template: '<App/>'
 }).$mount('#root')
