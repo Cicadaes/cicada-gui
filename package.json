@@ -29,7 +29,10 @@
     "url": "https://github.com/Cicadaes/cicada-gui/issues"
   },
   "homepage": "https://github.com/Cicadaes/cicada-gui#readme",
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.y16",
+    "vue-router": "^3.0.1"
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
@@ -58,7 +61,6 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "tree-kill": "^1.2.0",
-    "vue": "^2.5.16",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^14.2.1",
     "vue-template-compiler": "^2.5.16",

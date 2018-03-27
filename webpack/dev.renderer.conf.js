@@ -8,7 +8,7 @@ const { dependencies } = require('../package.json')
 const webpackBase = require('./base.conf')
 const outputDir = resolve(__dirname, '..', 'app')
 
-let whiteListedModules = ['vue']
+let whiteListedModules = ['vue', 'vue-router']
 
 // external "url"?61e8:1 Uncaught ReferenceError: require is not defined
 // Must running at Electron not Chrome
